@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Info</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" >
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" >
+    <link rel="stylesheet" href="css/style.css" >
+</head>
+<body ng-app="weather">
+
+<!-- navbar -->
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">Current Weather Report</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+        </div>
+    </div>
+</div>
+<!-- /navbar -->
+
+<!-- ng-controller -->
+<div ng-controller="weatherController as weather" class="container-fluid">
+    <div class="col-lg-4  col-sm-6" ng-repeat="item in weather.data.list">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{item.name}} :: ID :: {{item.id}}</h3>
+            </div>
+            <div class="panel-body panel-height">
+
+                <div class="col-xs-3">
+                    <img src="http://openweathermap.org/img/w/{{item.weather[0].icon}}.png" />
+                </div>
+
+                <div class="col-xs-9">
+                    <h4><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Temperature :: {{item.main.temp}} 	&#8451; </h4>
+                    <h4><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Description :: {{item.weather[0].description}} </h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ng-controller -->
+
+
+<!-- scripts -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/servicers.js"></script>
+
+</body>
+</html>
